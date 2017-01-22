@@ -1,30 +1,21 @@
 //IDs from HTML: temperature, fahrenheitRadio, celsiusRadio, converter, clear, output-target
 
-//I need the variables and the values
-function saveInputText() {
-	var temperatureInput = document.getElementById("temperature").value;
+var form = document.getElementById('name-form');
+form.onsubmit = function(e) {
+	e.preventDefault();
+	var temperatureInput =  parseFloat(document.getElementById("temperature").value);
+	// console.log(temperatureInput);
 	return temperatureInput;
-	console.log("temperatureInput", temperatureInput);
 };
 
-//Where are we sending the Output
-var outputTarget = document.getElementById("output-target");
-
-//Which radio button did the user pick
-var pickedcelsiusRadio = document.getElementById("celsiusRadio");
-var pickedfahrenheitRadio = document.getElementById("fahrenheitRadio");
-
-//What button did the user click
-var submitClicked = document.getElementById("converter");
-submitClicked.addEventListener("click", determineConverter);
+console.log(form.onsubmit.temperatureInput);
 
 //The enter button is pressed---I straight up googled this below
 document.getElementById("temperature").addEventListener("keyup", function(e) {
     if (e.keyCode == 13) {
-        document.getElementById("converter").click();
+        document.getElementById("submit").click();
     }
 });
-
 //clear the text input
 function clearInputText() {
 	//var clearClicked = document.getElementById("clear");
@@ -34,28 +25,47 @@ function clearInputText() {
     window.location.reload();
 };
 
+//Where are we sending the Output
+var outputTarget = document.getElementById("output-target");
+
+// //What radio button did the user click
+// var submitClicked = document.getElementById("converter");
+// submitClicked.addEventListener("click", determineConverter);
+
 // This function should determine which conversion should
 // happen based on which radio button is selected.
-function determineConverter () {
-	if (pickedcelsiusRadio) {
-		toCelsius();
+
+//Which radio button did the user pick
+var pickedcelsiusRadio = document.getElementById("celsiusRadio").value;
+var pickedfahrenheitRadio = document.getElementById("fahrenheitRadio").value;
+
+function determineConverter (celsius, fahrenheit) {
+	if (celsius) {
+		console.log("celsius", celsius);
+		//toCelsius();
 	};
-	if (pickedfahrenheitRadio) {
-		toFahrenheit();
+	if (fahrenheit) {
+		console.log("fahrenheit", fahrenheit);
+		//toFahrenheit();
 	};
 };
 
-//convert to Celsius and Fahrenheit
-function toCelsius() {
-	console.log("temperatureInput", temperatureInput)
-	 var celsiusOutput = temperatureInput * 9 / 5 + 32;
-	 outputTarget.innerHTML = celsiusOutput;
-}
 
-function toFahrenheit() {
-	var fahrenheitOutput = temperatureInput.value - 32 * 5 / 9;
-	outputTarget.innerHTML = fahrenheitOutput;
-};
+// console.log("pickedcelsiusRadio", pickedcelsiusRadio);
+// console.log("pickedfahrenheitRadio", pickedfahrenheitRadio);
+// determineConverter (pickedcelsiusRadio, pickedfahrenheitRadio);
+
+// //convert to Celsius and Fahrenheit
+// function toCelsius() {
+// 	console.log("temperatureInput", temperatureInput)
+// 	 var celsiusOutput = temperatureInput * 9 / 5 + 32;
+// 	 outputTarget.innerHTML = celsiusOutput;
+// }
+
+// function toFahrenheit() {
+// 	var fahrenheitOutput = temperatureInput.value - 32 * 5 / 9;
+// 	outputTarget.innerHTML = fahrenheitOutput;
+// };
 
 //We need to change the colors to red, blue, and green
 // function giveItColor() {

@@ -10,8 +10,14 @@
 
 
 
+
+
+
+
 <div id="wrapper">
-	
+
+	<form id="name-form">
+
 	  Temperature:<br>
 	  <input type="text" name="temperature" id="temperature"><br>
 
@@ -19,10 +25,12 @@
 
 	  <input type="radio" name="conversion" value="fahrenheit" id="fahrenheitRadio"> Fahrenheit<br>
 
-		<button id="converter" onclick="saveInputText()">Submit</button>
+		<button id="submit">Submit</button>
 		<button id="clear" onclick="clearInputText()">Clear</button>
 
-	 	<div id="output-target"></div>
+	</form>
+
+	<div id="output-target"></div>
 
 </div>
 
