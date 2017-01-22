@@ -19,6 +19,14 @@ buttonPushed.addEventListener("click", determineConverter);
 //Where are we sending the Output
 var outputTarget = document.getElementById("output-target");
 
+document.getElementById("myForm").addEventListener("submit", myFunction);
+function myFunction() {
+    alert("The form was submitted");
+}
+
+userInput = myFunction();
+console.log("userInput", userInput);
+
 //The enter button is pressed---I straight up googled this below
 document.getElementById("temperature").addEventListener("keyup", function(e) {
     if (e.keyCode == 13) {
@@ -45,22 +53,18 @@ function determineConverter(clickEvent) {
 	}
 };
 
+//convert to Celsius and Fahrenheit
+function toCelsius() {
+	 var celsiusOutput = temperatureInput.value * 0;//* 9 / 5 + 32;
+	 console.log("celsiusOutput", celsiusOutput)
+	 giveItColor(celsiusOutput);
+}
 
-// console.log("pickedcelsiusRadio", pickedcelsiusRadio);
-// console.log("pickedfahrenheitRadio", pickedfahrenheitRadio);
-// determineConverter (pickedcelsiusRadio, pickedfahrenheitRadio);
-
-// //convert to Celsius and Fahrenheit
-// function toCelsius() {
-// 	console.log("temperatureInput", temperatureInput)
-// 	 var celsiusOutput = temperatureInput * 9 / 5 + 32;
-// 	 outputTarget.innerHTML = celsiusOutput;
-// }
-
-// function toFahrenheit() {
-// 	var fahrenheitOutput = temperatureInput.value - 32 * 5 / 9;
-// 	outputTarget.innerHTML = fahrenheitOutput;
-// };
+function toFahrenheit() {
+	var fahrenheitOutput = temperatureInput.value * 2; //- 32 * 5 / 9;
+	console.log("fahrenheitOutput", fahrenheitOutput);
+	giveItColor(fahrenheitOutput);
+};
 
 //We need to change the colors to red, blue, and green
 // function giveItColor() {
