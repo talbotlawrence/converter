@@ -5,21 +5,46 @@
 	<title>Converter</title>
 </head>
 <body>
+
+
+
+
+
 <div id="wrapper">
 	
 	  Temperature:<br>
 	  <input type="text" name="temperature" id="temperature"><br>
 
-	  <input type="radio" name="conversion" value="celsius" id="celsiusNumber"> Celsius<br>
+	  <input type="radio" name="conversion" value="celsius" id="celsiusRadio"> Celsius<br>
 
-	  <input type="radio" name="conversion" value="fahrenheit" id="fahrenheitNumber"> Fahrenheit<br>
+	  <input type="radio" name="conversion" value="fahrenheit" id="fahrenheitRadio"> Fahrenheit<br>
 
-		<button id="converter">Submit</button>
-		<button id="clear">Clear</button>
+		<button id="converter" onclick="saveInputText()">Submit</button>
+		<button id="clear" onclick="clearInputText()">Clear</button>
 
 	 	<div id="output-target"></div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	<script type="text/javascript" src="converter.js"></script>
 </body>
