@@ -1,19 +1,28 @@
 //IDs from HTML: temperature, fahrenheitRadio, celsiusRadio, converter, clear, output-target
 
-var form = document.getElementById('name-form');
-form.onsubmit = function(e) {
-	e.preventDefault();
-	var temperatureInput =  parseFloat(document.getElementById("temperature").value);
-	// console.log(temperatureInput);
-	return temperatureInput;
-};
+//this works////////////////////////////////////////////////////////////////////
+// var form = document.getElementById('name-form');
+// form.onsubmit = function(e) {
+// 	e.preventDefault();
+// 	var temperatureInput =  parseFloat(document.getElementById("temperature").value);
+// 	// console.log(temperatureInput);
+// 	return temperatureInput;
+// };
+//this works////////////////////////////////////////////////////////////////////
+//User input
+var userInput = document.getElementById("temperature").value;
+console.log("userInput", userInput)
+//Push that button
+var buttonPushed = document.getElementById("converter");
+buttonPushed.addEventListener("click", determineConverter);
 
-console.log(form.onsubmit.temperatureInput);
+//Where are we sending the Output
+var outputTarget = document.getElementById("output-target");
 
 //The enter button is pressed---I straight up googled this below
 document.getElementById("temperature").addEventListener("keyup", function(e) {
     if (e.keyCode == 13) {
-        document.getElementById("submit").click();
+        document.getElementById("converter").click();
     }
 });
 //clear the text input
@@ -25,29 +34,15 @@ function clearInputText() {
     window.location.reload();
 };
 
-//Where are we sending the Output
-var outputTarget = document.getElementById("output-target");
-
-// //What radio button did the user click
-// var submitClicked = document.getElementById("converter");
-// submitClicked.addEventListener("click", determineConverter);
-
 // This function should determine which conversion should
 // happen based on which radio button is selected.
-
-//Which radio button did the user pick
-var pickedcelsiusRadio = document.getElementById("celsiusRadio").value;
-var pickedfahrenheitRadio = document.getElementById("fahrenheitRadio").value;
-
-function determineConverter (celsius, fahrenheit) {
-	if (celsius) {
-		console.log("celsius", celsius);
-		//toCelsius();
-	};
-	if (fahrenheit) {
-		console.log("fahrenheit", fahrenheit);
-		//toFahrenheit();
-	};
+function determineConverter(clickEvent) {
+	if(document.getElementById("celsiusRadio").checked) {
+		console.log("userInput", userInput)
+		toCelsius(userInput);
+	} else {
+		toFahrenheit(userInput);
+	}
 };
 
 
