@@ -1,31 +1,40 @@
 //IDs from HTML: temperature, fahrenheitRadio, celsiusRadio, converter, clear, output-target
 
 //this works////////////////////////////////////////////////////////////////////
-// var form = document.getElementById('name-form');
-// form.onsubmit = function(e) {
-// 	e.preventDefault();
-// 	var temperatureInput =  parseFloat(document.getElementById("temperature").value);
-// 	// console.log(temperatureInput);
-// 	return temperatureInput;
-// };
+var form = document.getElementById('name-form');
+form.onsubmit = function(e) {
+	e.preventDefault();
+	var temperatureInput =  parseFloat(document.getElementById("temperature").value);
+	// console.log(temperatureInput);
+	return temperatureInput;
+};
 //this works////////////////////////////////////////////////////////////////////
 //User input
-var userInput = document.getElementById("temperature").value;
-console.log("userInput", userInput)
-//Push that button
+// document.getElementById("myForm").addEventListener("submit", myFunction);
+
+// function myFunction() {
+//     var saveInput = document.getElementById(temp).value;
+// 	console.log("saveInput", saveInput);
+// 	return saveInput;
+// }
+// function saveTempInfo(temp) {
+// 	temp.preventDefault();
+// 	var saveInput = document.getElementById(temp).value;
+// 	console.log("saveInput", saveInput);
+// 	return saveInput;
+// }
+
+// //Push that button
 var buttonPushed = document.getElementById("converter");
 buttonPushed.addEventListener("click", determineConverter);
 
 //Where are we sending the Output
 var outputTarget = document.getElementById("output-target");
 
-document.getElementById("myForm").addEventListener("submit", myFunction);
-function myFunction() {
-    alert("The form was submitted");
-}
-
-userInput = myFunction();
-console.log("userInput", userInput);
+// document.getElementById("myForm").addEventListener("submit", myFunction);
+// function myFunction() {
+//     alert("The form was submitted");
+// }
 
 //The enter button is pressed---I straight up googled this below
 document.getElementById("temperature").addEventListener("keyup", function(e) {

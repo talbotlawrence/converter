@@ -6,17 +6,10 @@
 </head>
 <body>
 
-
-
-
-
-
-
-
-
 <div id="wrapper">
 
 	<form id="myForm">
+	<!-- <form onSubmit="saveTempInfo('temperature');"></form> -->
 
 	  Temperature:<br>
 	  <input type="text" name="temperature" id="temperature"><br>
@@ -25,7 +18,8 @@
 
 	  <input type="radio" name="conversion" value="fahrenheit" id="fahrenheitRadio"> Fahrenheit<br>
 
-		<button id="converter" type="submit">Submit</button>
+		<!-- <button id="converter" type="submit" onclick="saveTempInfo('temperature')">Submit</button> -->
+		<input type="submit" value="Submit">
 		<button id="clear" onclick="clearInputText()">Clear</button>
 
 	</form>
@@ -34,26 +28,6 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	<script type="text/javascript" src="converter.js"></script>
 </body>
 </html>
